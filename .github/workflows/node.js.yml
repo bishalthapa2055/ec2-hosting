@@ -72,6 +72,18 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: scp -r artifacts/* $SSH_USER@$SSH_HOST:/var/www
-        
+
+      - name: Deploy application on EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST '
+            cd /home/$SSH_USER/app &&
+            npm install --production=false &&
+            npm run build &&
+            pm2 restart my-app || pm2 start dist/server.js --name "my-app" &&
+            pm2 save'
       - name: Clean up
         run: rm -rf ~/.ssh/id_rsa artifacts
