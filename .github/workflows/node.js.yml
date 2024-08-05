@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,6 +49,9 @@ jobs:
           name: build-artifacts
           path: .
 
+      - name: Create artifacts directory
+        run: mkdir artifacts
+
       - name: Extract artifacts
         run: tar -xzf artifacts.tar.gz -C artifacts
 
@@ -61,5 +65,6 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           scp -r artifacts/* $SSH_USER@$SSH_HOST:/var/www
+
       - name: Clean up
-        run: rm -rf ~/.ssh/id_rsa arti
+        run: rm -rf ~/.ssh/id_rsa artifacts
