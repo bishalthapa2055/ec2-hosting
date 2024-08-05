@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Archive production artifacts
-        run: tar -czf artifacts.tar.gz -C ./dist
+        run: tar -czf artifacts.tar.gz -C dist .
 
   deploy:
     needs: build
