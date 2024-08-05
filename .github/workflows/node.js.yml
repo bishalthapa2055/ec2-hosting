@@ -28,6 +28,12 @@ jobs:
       - name: Archive production artifacts
         run: tar -czf artifacts.tar.gz -C dist .
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: artifacts.tar.gz
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -36,10 +42,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download artifacts
-        run: |
-          mkdir -p artifacts
-          tar -xzf artifacts.tar.gz -C artifacts
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: .
+
+      - name: Extract artifacts
+        run: tar -xzf artifacts.tar.gz -C artifacts
+
       - name: Copy artifacts via SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
