@@ -101,5 +101,5 @@ jobs:
             pm2 restart my-app || pm2 start server.js --name "my-app" &&
             pm2 save'
 
-    #   - name: Clean up
-    #     run: rm -rf ~/.ssh/id_rsa artifacts
+      - name: Clean up
+        run: rm -rf ~/.ssh/id_rsa artifacts

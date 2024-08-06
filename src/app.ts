@@ -28,8 +28,9 @@ const data = [
 app.get("/users", (req , res) =>{
     res.status(200).json({
         status : true ,
+        env : process.env.MONGO_URI ,
         count : data.length,
-        data : data
+        data : data,
     })
 })
 
