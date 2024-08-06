@@ -18,12 +18,18 @@ app.use(json());
 app.get("/", (req , res) =>{
     res.status(200).json({status : true , message : "Server Live from express and the datas why is that "})
 })
-
+const data = [
+    {id : 1 ,name  : "Boishl Thapa"},
+    {id :2  , name : "Suraj Thapa"},
+    {id : 3 , name : "Bikram THapa"},
+    {id : 4 , name :"jeevan Aryal"}
+]
 
 app.get("/users", (req , res) =>{
     res.status(200).json({
         status : true ,
-        message : "Hello from users !!!"
+        count : data.length,
+        data : data
     })
 })
 
