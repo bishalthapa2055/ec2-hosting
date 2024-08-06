@@ -1,13 +1,14 @@
-require('dotenv').config();
-import { app } from './app';
+import 'dotenv/config';
+import { createServer } from 'http';
+import { app } from './app.js';
 
-const start = async() =>{
+const start = async () => {
     console.log("Starting up........");
-    const server = require("http").createServer(app);
-      server.listen(process.env.ENV_PORT || 3000 , () => {
-        console.log(
-          `server sttarted at port:http://localhost:${process.env.ENV_PORT}`
-        );
-      });
+    const server = createServer(app);
+    const PORT = process.env.ENV_PORT || 3000;
+    server.listen(PORT, () => {
+        console.log(`Server started at port: http://localhost:${PORT}`);
+    });
 }
-start()
+
+start();

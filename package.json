@@ -7,7 +7,7 @@
     "test": "jest --watchAll --detectOpenHandles",
     "server": "ts-node-dev --poll src/server.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/server.js",
+    "start": "node server.js",
     "build:digitalocean": "npm install --production=false && npm run build && npm ci"
   },
   "keywords": [],
