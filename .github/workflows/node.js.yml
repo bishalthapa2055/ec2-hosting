@@ -98,7 +98,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST '
             cd /var/www &&
             npm install --production &&
-            pm2 restart my-app || pm2 start dist/server.js --name "my-app" &&
+            pm2 restart my-app || pm2 start server.js --name "my-app" &&
             pm2 save'
 
       - name: Clean up
