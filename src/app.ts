@@ -16,7 +16,7 @@ app.use(json());
 
 
 app.get("/", (req , res) =>{
-    res.status(200).json({status : true , message : "Server Live from express"})
+    res.status(200).json({status : true , message : "Server Live from express and the datas why is that "})
 })
 
 
