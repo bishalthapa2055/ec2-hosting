@@ -41,6 +41,13 @@ app.get("/users", (req , res) =>{
     })
 })
 
+app.get("/current", (req , res) =>{
+    res.status(200).json({
+        status : true ,
+        datas :"currentRoutes "
+    })
+})
+
 app.get("/apple" , (req , res ) =>{
     res.status(200).json({
         status : true ,
