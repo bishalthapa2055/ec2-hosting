@@ -22,6 +22,10 @@ const data = [
     {id : 1 ,name  : "Boishl Thapa"},
     {id :2  , name : "Suraj Thapa"},
     {id : 3 , name : "Bikram THapa"},
+    {id : 4 , name :"jeevan Aryal"},
+    {id : 1 ,name  : "Boishl Thapa"},
+    {id :2  , name : "Suraj Thapa"},
+    {id : 3 , name : "Bikram THapa"},
     {id : 4 , name :"jeevan Aryal"}
 ]
 
