@@ -34,5 +34,12 @@ app.get("/users", (req , res) =>{
     })
 })
 
+app.get("/apple" , (req , res ) =>{
+    res.status(200).json({
+        status : true ,
+        message :"Hola from apples "
+    })
+})
+
 
 export { app }
