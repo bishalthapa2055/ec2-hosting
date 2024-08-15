@@ -48,6 +48,13 @@ app.get("/current", (req , res) =>{
     })
 })
 
+app.get("/actual", (req , res) =>{
+    res.status(200).json({
+        status : true ,
+        datas :"actual routes "
+    })
+})
+
 app.get("/apple" , (req , res ) =>{
     res.status(200).json({
         status : true ,
