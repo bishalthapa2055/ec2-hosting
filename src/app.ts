@@ -18,6 +18,9 @@ app.use(json());
 app.get("/", (req , res) =>{
     res.status(200).json({status : true , message : "Server Live fdasf  asdfa  asdf dsfasdfasdrom express and the datas why is that "})
 })
+app.get("/apple", (req , res) =>{
+    res.status(200).json({status : true , message : "Apple in the house "})
+})
 const data = [
     {id : 1 ,name  : "Boishl Thapa"},
     {id :2  , name : "Suraj Thapa"},
